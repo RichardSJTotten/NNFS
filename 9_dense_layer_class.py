@@ -49,11 +49,23 @@ dense1 = LayerDense(2, 3)
 # Create activation
 activation_1 = ActivationReLU()
 
+# Create 2nd dense layer (3 inputs to match first layers outputs)
+dense2 = LayerDense(3, 3)
+
+# Create Softmax activation
+activation_2 = ActivationSoftmax()
+
 # Perform a forward pass of our training data through the layer
 dense1.forward(X)
 
 # Perform activation
 activation_1.forward(dense1.output)
 
+# Perform forward pass through layer 2
+dense2.forward(activation_1.output)
+
+# Forward pass through 2nd activation
+activation_2.forward(dense2.output)
+
 #  print(dense1.output[:5])
-print(activation_1.output[:5])
+print(activation_2.output[:5])
