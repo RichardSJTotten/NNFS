@@ -7,3 +7,4 @@ output = (inputs[0] * weights[0] +
 					inputs[2] * weights[2] + bias)
 					
 print(output)
+
